@@ -2,14 +2,11 @@ function game() {
     var choices = ["rock","paper","scissors"];
     var playerScore = 0;
     var computerScore = 0;
+    var score = `${playerScore} - ${computerScore}`;
     
-
     for(i = 0; i < 5; i++) {
-
-        playRound();
-
+        
         function playRound(playerChoice, computerChoice) {
-
             var playerChoice = prompt("Choose Rock, Paper or Scissors!");
             var computerChoice = getComputerChoice();
             function getComputerChoice() {
@@ -24,22 +21,24 @@ function game() {
                         console.log(`You lose! ${computerChoice} beats ${playerChoice}`);
                         computerScore++;
                         return computerScore;
+                        
                   
                     }   //declare lose conditions and outputs
-
             else if(playerChoice.toLowerCase() === "rock" && computerChoice.toLowerCase() === "scissors" ||
                     playerChoice.toLowerCase() === "paper" && computerChoice.toLowerCase() === "rock" ||
                     playerChoice.toLowerCase() === "scissors" && computerChoice.toLowerCase() === "paper") {
                         console.log(`You Win! ${playerChoice} beats ${computerChoice}`);
                         playerScore++;
                         return playerScore;
+                        
                      
-                    }   //declare win conditions and outputs
-            return score = `${playerScore} - ${computerScore}`; 
+                    }   
+              //declare win conditions and outputs
         }
+        console.log(score);
+        playRound();
     }
-    console.log(score);
-    
+    console.log(score);   
 }
 game();
 
