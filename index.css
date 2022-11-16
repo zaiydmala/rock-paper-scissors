@@ -1,0 +1,30 @@
+.container {
+    box-sizing: border-box;
+    background-color: red;
+}
+.player-container, .player-selection, .score {
+    display: flex;
+}
+img {
+    height: 50px;
+    width: 50px;
+}
+img:hover {
+    animation: wiggle 75ms infinite;
+}
+
+@keyframes wiggle {
+    0% { transform: translate(2px, 0); }
+    50% { transform: translate(-2px, 0); }
+    100% { transform: translate(2px, 0); }
+}
+.player-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+}
+
+.hide {
+    display: none;
+}
