@@ -1,4 +1,12 @@
-game(); //the game is coded entirely in this function
+const start = document.querySelector('.start');
+start.addEventListener('click', (e) => {
+    const player_container = document.querySelector('.player-container');
+    player_container.classList.remove('hide');
+});
+
+
+
+//game(); //the game is coded entirely in this function
 function game() {
     const choices = ["rock", "paper", "scissors"];    //options for the player and computer to choose from
     let playerScore = 0;
@@ -16,7 +24,8 @@ function game() {
             }   //Get a random choice of the computer and returns it and stores in the variable computerChoice
             
             /* Below are the win, lose and draw conditions of each round */
-            if(playerChoice.toLowerCase() === computerChoice) { console.log(`It is a draw! because ${playerChoice} is same as ${computerChoice}`); }   //Draw conditions
+            if(playerChoice.toLowerCase() === computerChoice) { console.log(`It is a draw! because ${playerChoice} is same as ${computerChoice}`); }
+            //Draw conditions
             else if(playerChoice.toLowerCase() === "rock" && computerChoice === "paper" ||
             playerChoice.toLowerCase() === "paper" && computerChoice === "scissors" ||
             playerChoice.toLowerCase() === "scissors" && computerChoice === "rock") {
