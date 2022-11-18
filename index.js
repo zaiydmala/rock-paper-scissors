@@ -1,48 +1,49 @@
 game();
 function game() { 
     const start = document.querySelector('.start');
-start.addEventListener('click', (e) => {
     const playerContainer = document.querySelector('.player-container');
-    playerContainer.classList.remove('hide');
-});
-
-let playerScore = 0;
-let computerScore = 0;
-
-let selected = document.querySelectorAll('#option');
-
-selected.forEach((selection) => { 
-    selection.addEventListener('click', selectedOption);
-    selection.addEventListener('click', playRound);
-});
-function selectedOption() {
-    const selection = this.className;
-    selected = selection;
-}
-
-function playRound() {
-    let options = ['rock', 'paper', 'scissors'];
-    const computerChoice = getComputerChoice();
-    function getComputerChoice() { return options[Math.floor(Math.random()*options.length)]; }
-    roundDecision();
     
-    function roundDecision() {
-        console.log(`${selected} - ${computerChoice}`);
-        if( (selected === 'rock' && computerChoice === 'scissors') ||
-            (selected === "paper" && computerChoice === "rock") ||
-            (selected === "scissors" && computerChoice === "paper") ) {
-            playerScore++;
-            const currentPlayerScore = document.querySelector('.player-score').textContent = `${playerScore}`;
-        }//win conditions and output
-        else if( (selected === 'rock' && computerChoice === 'paper') ||
-            (selected === "paper" && computerChoice === "scissors") ||
-            (selected === "scissors" && computerChoice === "rock") ) {
-            computerScore++;
-            const currentComputerScore = document.querySelector('.computer-score').textContent = `${computerScore}`;
-        }//lose conditions and output
-    }   
-    
-}
+    start.addEventListener('click', (e) => {
+        playerContainer.classList.remove('hide');
+    });
+
+    let playerScore = 0;
+    let computerScore = 0;
+
+    let selected = document.querySelectorAll('#option');
+
+    selected.forEach((selection) => { 
+        selection.addEventListener('click', selectedOption);
+        selection.addEventListener('click', playRound);
+    });
+    function selectedOption() {
+        const selection = this.className;
+        selected = selection;
+    }
+
+    function playRound() {
+        let options = ['rock', 'paper', 'scissors'];
+        const computerChoice = getComputerChoice();
+        function getComputerChoice() { return options[Math.floor(Math.random()*options.length)]; }
+        roundDecision();
+        
+        function roundDecision() {
+            console.log(`${selected} - ${computerChoice}`);
+            if( (selected === 'rock' && computerChoice === 'scissors') ||
+                (selected === "paper" && computerChoice === "rock") ||
+                (selected === "scissors" && computerChoice === "paper") ) {
+                playerScore++;
+                const currentPlayerScore = document.querySelector('.player-score').textContent = `${playerScore}`;
+            }//win conditions and output
+            else if( (selected === 'rock' && computerChoice === 'paper') ||
+                (selected === "paper" && computerChoice === "scissors") ||
+                (selected === "scissors" && computerChoice === "rock") ) {
+                computerScore++;
+                const currentComputerScore = document.querySelector('.computer-score').textContent = `${computerScore}`;
+            }//lose conditions and output
+        } 
+        
+    }
 
 
 }
