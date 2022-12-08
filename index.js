@@ -1,51 +1,57 @@
-game();
-function game() { 
-    const start = document.querySelector('.start');
-    const playerContainer = document.querySelector('.player-container');
+const start = document.querySelector('.start');
+const playerContainer = document.querySelector('.player-container');
+
+start.addEventListener('click', (e) => {
+    playerContainer.classList.remove('hide');
+});
+/* initialise score before the game starts */
+let playerScore = 0;
+let computerScore = 0;
+
+let selected = document.querySelectorAll('#option');
+
+/* runs 2 functions on same event - checks user's selection and plays the round */
+selected.forEach((selection) => { 
+    selection.addEventListener('click', selectedOption);
+    selection.addEventListener('click', playRound);
+});
+
+/* associates user's click on the image with the appropriate option */
+function selectedOption() {
+    const selection = this.className;
+    selected = selection;
+}
+
+/* runs a round */
+function playRound() {
+    let options = ['rock', 'paper', 'scissors']; //array that will be traversed to get a randomly generated choice
+    const computerChoice = getComputerChoice();
+    function getComputerChoice() { return options[Math.floor(Math.random()*options.length)]; }
+    /* makes a decision based on user and computer choices */
+    roundDecision();
+    function roundDecision() {
+        console.log(`${selected} - ${computerChoice}`);
+        if( (selected === 'rock' && computerChoice === 'scissors') ||
+            (selected === "paper" && computerChoice === "rock") ||
+            (selected === "scissors" && computerChoice === "paper") ) {
+            playerScore++;
+            const currentPlayerScore = document.querySelector('.player-score').textContent = `${playerScore}`;
+        }//win conditions and output
+        else if( (selected === 'rock' && computerChoice === 'paper') ||
+            (selected === "paper" && computerChoice === "scissors") ||
+            (selected === "scissors" && computerChoice === "rock") ) {
+            computerScore++;
+            const currentComputerScore = document.querySelector('.computer-score').textContent = `${computerScore}`;
+        }//lose conditions and output
+    }  
+    if(playerScore == 3 || computerScore == 3) {
+        playerContainer.classList.add('hide');
+        displayResult();
+    }
+}
+
+function displayResult(playerScore, computerScore) {
     
-    start.addEventListener('click', (e) => {
-        playerContainer.classList.remove('hide');
-    });
-
-    let playerScore = 0;
-    let computerScore = 0;
-
-    let selected = document.querySelectorAll('#option');
-
-    selected.forEach((selection) => { 
-        selection.addEventListener('click', selectedOption);
-        selection.addEventListener('click', playRound);
-    });
-    function selectedOption() {
-        const selection = this.className;
-        selected = selection;
-    }
-
-    function playRound() {
-        let options = ['rock', 'paper', 'scissors'];
-        const computerChoice = getComputerChoice();
-        function getComputerChoice() { return options[Math.floor(Math.random()*options.length)]; }
-        roundDecision();
-        
-        function roundDecision() {
-            console.log(`${selected} - ${computerChoice}`);
-            if( (selected === 'rock' && computerChoice === 'scissors') ||
-                (selected === "paper" && computerChoice === "rock") ||
-                (selected === "scissors" && computerChoice === "paper") ) {
-                playerScore++;
-                const currentPlayerScore = document.querySelector('.player-score').textContent = `${playerScore}`;
-            }//win conditions and output
-            else if( (selected === 'rock' && computerChoice === 'paper') ||
-                (selected === "paper" && computerChoice === "scissors") ||
-                (selected === "scissors" && computerChoice === "rock") ) {
-                computerScore++;
-                const currentComputerScore = document.querySelector('.computer-score').textContent = `${computerScore}`;
-            }//lose conditions and output
-        } 
-        
-    }
-
-
 }
 
 

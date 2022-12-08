@@ -3,10 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Page Title</title>
+  <meta name="description" content="A game of rock, paper, scissors.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="index.css">
   <script src="index.js" defer></script>
 </head>
 <body>
+  <audio id="startsound" src="move.mp3"></audio>
+  <audio id="winsound" src="win.wav"></audio>
+  <audio id="losesound" src="lose.wav"></audio>
+
   <div class="container">
     <h1 class="game-title">ROCK PAPER SCISSORS</h1>
     <btn class="start">START</btn>
@@ -29,9 +35,9 @@
         <h1 class="player-name">COMPUTER</h1>
         
         <div class="player-selection">
-          <div class="rock" id="option"><img src="images/rock.png" alt="rock" /></div>
-          <div class="paper" id="option"><img src="images/paper.png" alt="paper" /></div>
-          <div class="scissors" id="option"><img src="images/scissors.png" alt="scissors" /></div>
+          <div class="rock"><img src="images/rock.png" alt="rock" /></div>
+          <div class="paper"><img src="images/paper.png" alt="paper" /></div>
+          <div class="scissors"><img src="images/scissors.png" alt="scissors" /></div>
         </div> 
       </div>
   </div>
