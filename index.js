@@ -1,18 +1,22 @@
-// Function to write text before game starts
+// Write text before game starts
 let i = 0;
-let txt = 'Rock, Paper, Scissors?';
 let speed = 50;
+let txt = document.createElement('paragraph');
+txt.classList.add('testing');
+txt.textContent = 'Rock, Paper, Scissors?';
 
+let text = txt.textContent;
 function typeWriter() {
-    if (i < txt.length) {
-        document.getElementById("gameh1").innerHTML += txt.charAt(i);
+    console.log(text);
+    if (i < text.length) {
+        document.getElementById("gameh1").innerHTML += text.charAt(i);
         i++;
         setTimeout(typeWriter, speed);
     }
 }
 
 
-// Function to play main button audio on click
+// Play main button audio on click
 function playSound() {
     const buttonPress = document.querySelector("#startbuttonsound");
     buttonPress.play();
@@ -20,19 +24,19 @@ function playSound() {
 mainButton = document.querySelector("#startbutton").addEventListener("click", playSound);
 
 
-// Function to play winner audio on win
+// Play winner audio on win
 function playWinSound() {
     const winSound = document.getElementById("winnersound");
     winSound.play();
 }
 
-// Function to play loser audio on loss
+// Play loser audio on loss
 function playLoseSound() {
     const loseSound = document.getElementById("losersound");
     loseSound.play();
 }
 
-// Function to hide start div and show end div
+// Hide start div and show end div
 let startContainer = document.getElementById('startcontainer');
 let btn = document.querySelector("#startbutton");
 
@@ -51,7 +55,7 @@ btn.addEventListener('click', function(){
 });
 
 
-// Function to hide end div and show winner div & logos
+// Hide end div and show winner div & logos
 function hideEndContainerShowWinner() {
     let gameContainer = document.querySelector('.gamecontainer');
     let bottomContainer = document.getElementById('bottomcontainer');
@@ -200,9 +204,7 @@ function playRound(playerSelection) {
         scissorsSelected.style.backgroundColor = "white";
         // If computer selection is rock then draw
         if (computerSelection === "rock") {
-            console.log("Draw!");
-            playerScore++;
-            computerScore++;
+            console.log("Draw!");            
             // Set the score in the player HTML element
             const currentPlayerScore = document.querySelector("#playerscore").innerHTML = `Score: ${playerScore}`;
             // Set the score in the computer HTML element
@@ -248,8 +250,6 @@ function playRound(playerSelection) {
         // If computer selection is paper then draw
         else if (computerSelection === "paper") {
             console.log("Draw!");
-            playerScore++;
-            computerScore++;
             // Set the score in the player HTML element
             const currentPlayerScore = document.querySelector("#playerscore").innerHTML = `Score: ${playerScore}`;
             // Set the score in the computer HTML element
@@ -295,8 +295,6 @@ function playRound(playerSelection) {
         // If computer selection is scissors then draw
         else {
             console.log("Draw!");
-            playerScore++;
-            computerScore++;
             // Set the score in the player HTML element
             const currentPlayerScore = document.querySelector("#playerscore").innerHTML = `Score: ${playerScore}`;
             // Set the score in the computer HTML element
