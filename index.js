@@ -1,3 +1,17 @@
+//to make title come up before the game starts
+let i = 0;
+let txt = 'Rock, Paper, Scissors?';
+let speed = 50;
+
+//
+function titleTyper() {
+    if (i < txt.length) {
+        document.querySelector(".gameh1").innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(titleTyper, speed);
+    }
+}
+
 const start = document.querySelector('.start');
 const playerContainer = document.querySelector('.player-container');
 
