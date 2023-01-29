@@ -1,5 +1,5 @@
 # rock-paper-scissors
-[Live Demo] (https://zaiydmala.github.io/rock-paper-scissors)
+[Play here](https://zaiydmala.github.io/rock-paper-scissors)
 November 1, 2022 - Implementing the popular game in the browser console, FOR NOW. With further plans on revisiting this project to add GUI to it.
 
 January 27, 2023 - JavaScript Project from The Odin Project curriculum. 
